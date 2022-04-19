@@ -16,9 +16,9 @@ const crearListaDeProductos = (productos) => {
                       <a class="btn btn-primary" id=btnAgregar${producto.codigo}>Agregar al carrito</a>
                       </div>`;
     tarjeta.appendChild(div);
-    console.log(producto.codigo);
+    // console.log(producto.codigo);
     const btnAgregar = document.getElementById(`btnAgregar${producto.codigo}`);
-    console.log(btnAgregar);
+    // console.log(btnAgregar);
     btnAgregar.addEventListener("click", () => {
       agregarAlCarrito(producto.codigo);
     });

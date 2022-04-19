@@ -1,6 +1,6 @@
 import { productos } from "./stock.js";
 
-let carritoDePedido = [];
+// let carritoDePedido = [];
 
 export const agregarAlCarrito = (productoCodigo) => {
   const encontrarProductos = () => {
@@ -8,7 +8,13 @@ export const agregarAlCarrito = (productoCodigo) => {
       (producto) => producto.codigo == productoCodigo
     );
     console.log(producto);
+    let carritoDePedido = JSON.parse(localStorage.getItem("productosAgregados"));
     carritoDePedido.push(producto);
+    let carritoDePedidoJSON = JSON.stringify(carritoDePedido);
+    localStorage.setItem("productosAgregados", carritoDePedidoJSON);
+    
+    
+    
 
     producto.cantidad = 1;
     
@@ -18,22 +24,17 @@ export const agregarAlCarrito = (productoCodigo) => {
                             <p>Precio: ${producto.precio}</p>
                             <p id="cantidad${producto.codigo}">Cantidad: ${producto.cantidad}</p>
                             `
+    
+    
+    
   };
   
 
   encontrarProductos();
-//   guardarCarrito(productos, JSON.stringify(carritoDePedido));
-// //   const mostrarCarrito = JSON.parse(localStorage.getItem(carritoDePedido));
 
-// const carrito = JSON.parse(localStorage.getItem(productos));
-// console.log(carrito);
 
 
 };
-
-// const guardarCarrito = (clave, valor) => {
-//     localStorage.setItem(clave, valor)
-// };
 
 
 
